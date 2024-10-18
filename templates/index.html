@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My File Sharing App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            margin-top: 200px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            margin-left: 380px;
+            cursor: pointer;
+
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            margin-top: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My File Sharing App</h1>
+        <p>Upload and access files through AWS</p>
+        
+        <!-- Button to upload files -->
+        <form action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="file">Select a file to upload:</label><br><br>
+            <input type="file" name="file" id="file">
+            <button type="submit">Upload File</button>
+        </form>
+    </div>
+</body>
+</html>
